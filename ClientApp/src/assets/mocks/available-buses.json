@@ -1,0 +1,94 @@
+[
+  {
+    "busNumber": "BUS001",
+    "routeNumber": "R123",
+    "origin": "New York",
+    "destination": "Boston",
+    "departureTime": "2025-10-27T08:00:00Z",
+    "arrivalTime": "2025-10-27T12:30:00Z",
+    "totalSeats": 40,
+    "availableSeats": 25,
+    "price": 45.00,
+    "busType": "AC Sleeper",
+    "operatorName": "Express Travel"
+  },
+  {
+    "busNumber": "BUS002",
+    "routeNumber": "R123",
+    "origin": "New York",
+    "destination": "Boston",
+    "departureTime": "2025-10-27T10:00:00Z",
+    "arrivalTime": "2025-10-27T14:30:00Z",
+    "totalSeats": 36,
+    "availableSeats": 18,
+    "price": 40.00,
+    "busType": "AC",
+    "operatorName": "Metro Lines"
+  },
+  {
+    "busNumber": "BUS003",
+    "routeNumber": "R123",
+    "origin": "New York",
+    "destination": "Boston",
+    "departureTime": "2025-10-27T14:00:00Z",
+    "arrivalTime": "2025-10-27T18:45:00Z",
+    "totalSeats": 45,
+    "availableSeats": 32,
+    "price": 35.00,
+    "busType": "Non-AC",
+    "operatorName": "Budget Bus"
+  },
+  {
+    "busNumber": "BUS004",
+    "routeNumber": "R124",
+    "origin": "Los Angeles",
+    "destination": "San Francisco",
+    "departureTime": "2025-10-27T09:00:00Z",
+    "arrivalTime": "2025-10-27T15:00:00Z",
+    "totalSeats": 40,
+    "availableSeats": 15,
+    "price": 55.00,
+    "busType": "AC Sleeper",
+    "operatorName": "Pacific Express"
+  },
+  {
+    "busNumber": "BUS005",
+    "routeNumber": "R124",
+    "origin": "Los Angeles",
+    "destination": "San Francisco",
+    "departureTime": "2025-10-27T13:00:00Z",
+    "arrivalTime": "2025-10-27T19:00:00Z",
+    "totalSeats": 36,
+    "availableSeats": 28,
+    "price": 50.00,
+    "busType": "AC",
+    "operatorName": "California Transit"
+  },
+  {
+    "busNumber": "BUS006",
+    "routeNumber": "R125",
+    "origin": "Chicago",
+    "destination": "Detroit",
+    "departureTime": "2025-10-27T07:30:00Z",
+    "arrivalTime": "2025-10-27T13:00:00Z",
+    "totalSeats": 40,
+    "availableSeats": 20,
+    "price": 38.00,
+    "busType": "AC",
+    "operatorName": "Midwest Express"
+  },
+  {
+    "busNumber": "BUS007",
+    "routeNumber": "R125",
+    "origin": "Chicago",
+    "destination": "Detroit",
+    "departureTime": "2025-10-27T11:00:00Z",
+    "arrivalTime": "2025-10-27T16:30:00Z",
+    "totalSeats": 45,
+    "availableSeats": 35,
+    "price": 32.00,
+    "busType": "Non-AC",
+    "operatorName": "Great Lakes Lines"
+  }
+]
+

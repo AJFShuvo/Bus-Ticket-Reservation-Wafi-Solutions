@@ -1,0 +1,20 @@
+{
+  "bookingId": "PNR1234567890",
+  "status": "Confirmed",
+  "busNumber": "BUS001",
+  "routeNumber": "R123",
+  "seatNumbers": ["A1", "A2"],
+  "passenger": {
+    "name": "John Doe",
+    "phoneNumber": "1234567890",
+    "email": "john.doe@example.com"
+  },
+  "origin": "New York",
+  "destination": "Boston",
+  "departureTime": "2025-10-27T08:00:00Z",
+  "arrivalTime": "2025-10-27T12:30:00Z",
+  "totalAmount": 90.00,
+  "bookingDate": "2025-10-26T18:45:00Z",
+  "remarks": "Booking confirmed. Please arrive 30 minutes before departure."
+}
+

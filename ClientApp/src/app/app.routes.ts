@@ -1,8 +1,25 @@
 import { Routes } from '@angular/router';
-import { IndexComponent } from './pages/index/index.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: IndexComponent },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: '',
+    redirectTo: 'search',
+    pathMatch: 'full'
+  },
+  {
+    path: 'search',
+    loadComponent: () => import('./features/search/search.component').then(m => m.SearchComponent)
+  },
+  {
+    path: 'results',
+    loadComponent: () => import('./features/results/results.component').then(m => m.ResultsComponent)
+  },
+  {
+    path: 'seatmap/:id',
+    loadComponent: () => import('./features/seatmap/seatmap.component').then(m => m.SeatmapComponent)
+  },
+  {
+    path: '**',
+    redirectTo: 'search'
+  }
 ];

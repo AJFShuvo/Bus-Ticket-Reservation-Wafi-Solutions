@@ -1,0 +1,287 @@
+<div class="seatmap-container">
+  <div class="container-fluid py-4">
+    
+    <!-- Header with Bus Info -->
+    <div class="header-section mb-4">
+      <button class="btn btn-link" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i> Back to Results
+      </button>
+      
+      <div class="bus-info-card card shadow-sm" *ngIf="bus">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h4 class="mb-2">
+                <i class="bi bi-bus-front-fill"></i> {{ bus.operatorName || 'Bus Operator' }}
+              </h4>
+              <p class="text-muted mb-0">
+                {{ bus.busNumber }} | {{ bus.origin }} → {{ bus.destination }}
+                <span class="mx-2">|</span>
+                <i class="bi bi-clock"></i> {{ bus.departureTime | date: 'short' }}
+              </p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+              <div class="price-display">
+                <small class="text-muted d-block">Base Price</small>
+                <h3 class="mb-0">${{ bus.price }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      <strong>Success!</strong> {{ successMessage }}
+      <button type="button" class="btn-close" (click)="successMessage = ''" aria-label="Close"></button>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      <strong>Error!</strong> {{ errorMessage }}
+      <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+    </div>
+
+    <div class="row">
+      <!-- Seat Map Section -->
+      <div class="col-lg-8 mb-4">
+        <div class="seatmap-card card shadow">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">
+              <i class="bi bi-grid-3x3-gap"></i> Select Your Seats
+            </h5>
+          </div>
+          <div class="card-body">
+            
+            <!-- Loading State -->
+            <div *ngIf="isFetchingSeats" class="text-center py-5">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading seats...</span>
+              </div>
+              <p class="mt-3 text-muted">Loading seat layout...</p>
+            </div>
+
+            <!-- Seat Legend -->
+            <div class="seat-legend mb-4" *ngIf="!isFetchingSeats && seatPlan">
+              <div class="legend-item">
+                <div class="legend-box available"></div>
+                <span>Available</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-box selected"></div>
+                <span>Selected</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-box booked"></div>
+                <span>Booked</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-box sold"></div>
+                <span>Sold</span>
+              </div>
+            </div>
+
+            <!-- Seat Grid -->
+            <div class="seat-grid" *ngIf="!isFetchingSeats && seatPlan">
+              <!-- Driver Section -->
+              <div class="driver-section mb-4">
+                <div class="driver-icon">
+                  <i class="bi bi-person-circle"></i>
+                  <span>Driver</span>
+                </div>
+              </div>
+
+              <!-- Seat Rows -->
+              <div class="seats-container">
+                <div class="seat-row" *ngFor="let row of seatRows; let rowIndex = index">
+                  <div class="row-label">{{ rowIndex + 1 }}</div>
+                  <div class="row-seats">
+                    <app-seat-box
+                      *ngFor="let seat of row"
+                      [seat]="seat"
+                      [selected]="isSeatSelected(seat)"
+                      (toggle)="onSeatToggle($event)"
+                    ></app-seat-box>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selected Seats Summary -->
+              <div class="selected-summary mt-4" *ngIf="selectedSeats.length > 0">
+                <div class="alert alert-info">
+                  <strong>
+                    <i class="bi bi-check2-square"></i>
+                    Selected Seats ({{ selectedSeats.length }}):
+                  </strong>
+                  <span class="ms-2">
+                    <span class="badge bg-primary me-1" *ngFor="let seat of selectedSeats">
+                      {{ seat.seatNumber }}
+                    </span>
+                  </span>
+                  <button class="btn btn-sm btn-outline-secondary float-end" (click)="clearSelections()">
+                    Clear All
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form Section -->
+      <div class="col-lg-4">
+        <div class="booking-form-card card shadow sticky-top">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0">
+              <i class="bi bi-ticket-perforated"></i> Booking Details
+            </h5>
+          </div>
+          <div class="card-body">
+            
+            <!-- Selection Info -->
+            <div class="selection-info mb-3">
+              <div class="info-row">
+                <span class="label">Seats Selected:</span>
+                <span class="value">{{ selectedSeats.length }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Total Amount:</span>
+                <span class="value price">${{ getTotalPrice() }}</span>
+              </div>
+            </div>
+
+            <hr>
+
+            <!-- Booking Form -->
+            <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+              
+              <!-- Boarding Point -->
+              <div class="mb-3">
+                <label for="boardingPoint" class="form-label">
+                  <i class="bi bi-geo-alt"></i> Boarding Point *
+                </label>
+                <select 
+                  id="boardingPoint" 
+                  class="form-select"
+                  formControlName="boardingPoint"
+                  [class.is-invalid]="hasError('boardingPoint', 'required')"
+                >
+                  <option value="">Select boarding point</option>
+                  <option *ngFor="let point of boardingPoints" [value]="point">
+                    {{ point }}
+                  </option>
+                </select>
+                <div class="invalid-feedback" *ngIf="hasError('boardingPoint', 'required')">
+                  Boarding point is required
+                </div>
+              </div>
+
+              <!-- Dropping Point -->
+              <div class="mb-3">
+                <label for="droppingPoint" class="form-label">
+                  <i class="bi bi-geo-alt-fill"></i> Dropping Point *
+                </label>
+                <select 
+                  id="droppingPoint" 
+                  class="form-select"
+                  formControlName="droppingPoint"
+                  [class.is-invalid]="hasError('droppingPoint', 'required')"
+                >
+                  <option value="">Select dropping point</option>
+                  <option *ngFor="let point of droppingPoints" [value]="point">
+                    {{ point }}
+                  </option>
+                </select>
+                <div class="invalid-feedback" *ngIf="hasError('droppingPoint', 'required')">
+                  Dropping point is required
+                </div>
+              </div>
+
+              <!-- Passenger Name -->
+              <div class="mb-3">
+                <label for="passengerName" class="form-label">
+                  <i class="bi bi-person"></i> Passenger Name *
+                </label>
+                <input 
+                  type="text" 
+                  id="passengerName"
+                  class="form-control"
+                  formControlName="passengerName"
+                  placeholder="Enter full name"
+                  [class.is-invalid]="hasError('passengerName', 'required') || hasError('passengerName', 'minlength')"
+                />
+                <div class="invalid-feedback" *ngIf="hasError('passengerName', 'required')">
+                  Passenger name is required
+                </div>
+                <div class="invalid-feedback" *ngIf="hasError('passengerName', 'minlength')">
+                  Name must be at least 2 characters
+                </div>
+              </div>
+
+              <!-- Passenger Mobile -->
+              <div class="mb-3">
+                <label for="passengerMobile" class="form-label">
+                  <i class="bi bi-phone"></i> Mobile Number *
+                </label>
+                <input 
+                  type="tel" 
+                  id="passengerMobile"
+                  class="form-control"
+                  formControlName="passengerMobile"
+                  placeholder="10-digit mobile number"
+                  [class.is-invalid]="hasError('passengerMobile', 'required') || hasError('passengerMobile', 'pattern')"
+                />
+                <div class="invalid-feedback" *ngIf="hasError('passengerMobile', 'required')">
+                  Mobile number is required
+                </div>
+                <div class="invalid-feedback" *ngIf="hasError('passengerMobile', 'pattern')">
+                  Please enter a valid 10-digit mobile number
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button 
+                  type="submit" 
+                  class="btn btn-success btn-lg"
+                  [disabled]="isLoading || selectedSeats.length === 0"
+                >
+                  <span *ngIf="!isLoading">
+                    <i class="bi bi-check-circle"></i> Confirm Booking
+                  </span>
+                  <span *ngIf="isLoading">
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    Processing...
+                  </span>
+                </button>
+              </div>
+
+              <div class="mt-3 text-center">
+                <small class="text-muted">
+                  <i class="bi bi-shield-check"></i>
+                  Your booking is secure and protected
+                </small>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Booking Conflict Modal -->
+<app-confirmation-modal
+  [show]="showConflictModal"
+  [title]="'Booking Conflict'"
+  [message]="conflictModalMessage"
+  [confirmText]="'Refresh Seat Map'"
+  [cancelText]="'Close'"
+  [type]="'warning'"
+  (confirmed)="onConflictConfirmed()"
+  (cancelled)="onConflictCancelled()"
+></app-confirmation-modal>

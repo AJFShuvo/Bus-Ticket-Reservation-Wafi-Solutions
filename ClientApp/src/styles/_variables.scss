@@ -1,0 +1,241 @@
+// ========================================
+// Global SCSS Variables
+// Bus Reservation System
+// ========================================
+
+// ========================================
+// Color Palette
+// ========================================
+
+// Primary Colors
+$primary-color: #667eea;
+$primary-dark: #764ba2;
+$primary-light: #cfe2ff;
+
+// Secondary Colors
+$secondary-color: #6c757d;
+$secondary-light: #e9ecef;
+
+// Semantic Colors
+$success-color: #28a745;
+$success-light: #d4edda;
+$success-dark: #155724;
+
+$danger-color: #dc3545;
+$danger-light: #f8d7da;
+$danger-dark: #721c24;
+
+$warning-color: #ffc107;
+$warning-light: #fff3cd;
+$warning-dark: #856404;
+
+$info-color: #17a2b8;
+$info-light: #d1ecf1;
+$info-dark: #0c5460;
+
+// Seat Status Colors (matching design specification)
+// Available - Green
+$seat-available: #4CAF50;
+$seat-available-bg: #4CAF50;
+$seat-available-border: #4CAF50;
+
+// Selected - Blue border with green background
+$seat-selected: #2196F3;
+$seat-selected-bg: #4CAF50;
+$seat-selected-border: #2196F3;
+
+// Booked - Orange
+$seat-booked: #FF9800;
+$seat-booked-bg: #FF9800;
+$seat-booked-border: #FF9800;
+
+// Sold - Red
+$seat-sold: #F44336;
+$seat-sold-bg: #F44336;
+$seat-sold-border: #F44336;
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// Text Colors
+$text-primary: #2c3e50;
+$text-secondary: #6c757d;
+$text-muted: #6c757d;
+$text-white: $white;
+
+// Background Colors
+$bg-primary: $primary-color;
+$bg-light: $gray-100;
+$bg-white: $white;
+$bg-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$bg-gradient-2: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+$bg-gradient-success: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+
+// Border Colors
+$border-color: #e0e0e0;
+$border-light: $gray-300;
+$border-dark: $gray-600;
+
+// ========================================
+// Spacing
+// ========================================
+
+// Base spacing unit (8px system)
+$spacing-unit: 0.5rem; // 8px
+
+// Spacing scale
+$spacing-xs: $spacing-unit * 0.5;    // 4px
+$spacing-sm: $spacing-unit;          // 8px
+$spacing-md: $spacing-unit * 2;      // 16px
+$spacing-lg: $spacing-unit * 3;      // 24px
+$spacing-xl: $spacing-unit * 4;      // 32px
+$spacing-xxl: $spacing-unit * 6;     // 48px
+
+// Component-specific spacing
+$card-padding: $spacing-lg;
+$form-spacing: $spacing-md;
+$button-padding-vertical: $spacing-sm * 1.5;
+$button-padding-horizontal: $spacing-lg;
+
+// Gap sizes
+$gap-xs: 0.25rem;  // 4px
+$gap-sm: 0.5rem;   // 8px
+$gap-md: 1rem;     // 16px
+$gap-lg: 1.5rem;   // 24px
+$gap-xl: 2rem;     // 32px
+
+// ========================================
+// Typography
+// ========================================
+
+// Font Families
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-family-heading: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+// Font Sizes
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-base: 1rem;    // 16px
+$font-size-md: 1.125rem;  // 18px
+$font-size-lg: 1.25rem;   // 20px
+$font-size-xl: 1.5rem;    // 24px
+$font-size-xxl: 2rem;     // 32px
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// ========================================
+// Layout
+// ========================================
+
+// Container widths
+$container-sm: 540px;
+$container-md: 720px;
+$container-lg: 960px;
+$container-xl: 1140px;
+$container-xxl: 1320px;
+
+// Breakpoints (matching Bootstrap)
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Z-index scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// ========================================
+// Border & Radius
+// ========================================
+
+// Border widths
+$border-width-thin: 1px;
+$border-width-normal: 2px;
+$border-width-thick: 3px;
+
+// Border radius
+$border-radius-sm: 6px;
+$border-radius-base: 8px;
+$border-radius-md: 10px;
+$border-radius-lg: 12px;
+$border-radius-xl: 15px;
+$border-radius-pill: 50rem;
+
+// ========================================
+// Shadows
+// ========================================
+
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-base: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+$shadow-primary: 0 4px 12px rgba(102, 126, 234, 0.4);
+$shadow-success: 0 4px 12px rgba(40, 167, 69, 0.4);
+
+// ========================================
+// Transitions
+// ========================================
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// ========================================
+// Component-Specific Variables
+// ========================================
+
+// Cards
+$card-border-radius: $border-radius-lg;
+$card-padding: $spacing-lg;
+$card-shadow: $shadow-base;
+
+// Buttons
+$button-border-radius: $border-radius-base;
+$button-padding: $button-padding-vertical $button-padding-horizontal;
+$button-font-weight: $font-weight-semibold;
+
+// Forms
+$input-border-radius: $border-radius-base;
+$input-border-color: $border-color;
+$input-border-width: $border-width-normal;
+$input-padding: $spacing-sm * 1.5;
+$input-focus-border: $primary-color;
+
+// Seats
+$seat-width: 50px;
+$seat-height: 60px;
+$seat-width-tablet: 45px;
+$seat-height-tablet: 55px;
+$seat-width-mobile: 40px;
+$seat-height-mobile: 50px;
+$seat-border-radius: $border-radius-base;
+$seat-margin: 4px;
+$seat-margin-tablet: 3px;
+$seat-margin-mobile: 2px;
+

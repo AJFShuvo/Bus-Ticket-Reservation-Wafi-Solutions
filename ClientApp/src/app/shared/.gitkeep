@@ -1,0 +1,11 @@
+# Shared components, pipes, and directives go here
+# Note: For standalone components using reactive forms, import ReactiveFormsModule directly:
+#
+# import { ReactiveFormsModule } from '@angular/forms';
+#
+# @Component({
+#   standalone: true,
+#   imports: [ReactiveFormsModule, ...],
+#   ...
+# })
+

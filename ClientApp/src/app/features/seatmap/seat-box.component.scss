@@ -1,0 +1,166 @@
+.seat-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 60px;
+  margin: 4px;
+  padding: 8px 4px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  // Remove default button styles
+  outline: none;
+  font-family: inherit;
+
+  &:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+  }
+
+  .seat-icon {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+    display: block;
+
+    i {
+      display: block;
+    }
+  }
+
+  .seat-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: block;
+  }
+
+  .selected-indicator {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 1rem;
+    color: #0d6efd;
+    background: white;
+    border-radius: 50%;
+    line-height: 1;
+  }
+
+  // Available - Green (matching specification)
+  &.seat-available {
+    background: #4CAF50;  // Solid green as per image
+    border-color: #4CAF50;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background: #45a049;  // Slightly darker green on hover
+      border-color: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  // Booked - Orange (matching specification)
+  &.seat-booked {
+    background: #FF9800;  // Solid orange as per image
+    border-color: #FF9800;
+    color: white;
+    cursor: not-allowed;
+
+    .seat-icon {
+      opacity: 0.9;
+    }
+  }
+
+  // Sold - Red (matching specification)
+  &.seat-sold {
+    background: #F44336;  // Solid red
+    border-color: #F44336;
+    color: white;
+    cursor: not-allowed;
+
+    .seat-icon {
+      opacity: 0.9;
+    }
+  }
+
+  // Selected - Blue border (user selection)
+  &.seat-selected {
+    background: #4CAF50;  // Keep green background for available seat
+    border: 3px solid #2196F3;  // Blue border to indicate selection
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.6);
+
+    .seat-icon {
+      color: white;
+    }
+
+    &:hover:not(:disabled) {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 6px 16px rgba(33, 150, 243, 0.7);
+    }
+  }
+
+  // Disabled state
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    &:hover {
+      transform: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .seat-box {
+    width: 45px;
+    height: 55px;
+    margin: 3px;
+    padding: 6px 3px;
+
+    .seat-icon {
+      font-size: 1rem;
+    }
+
+    .seat-number {
+      font-size: 0.65rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .seat-box {
+    width: 40px;
+    height: 50px;
+    margin: 2px;
+    padding: 5px 2px;
+
+    .seat-icon {
+      font-size: 0.9rem;
+    }
+
+    .seat-number {
+      font-size: 0.6rem;
+    }
+
+    .selected-indicator {
+      font-size: 0.9rem;
+    }
+  }
+}
+

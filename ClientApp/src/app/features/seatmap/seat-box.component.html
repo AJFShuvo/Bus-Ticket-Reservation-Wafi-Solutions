@@ -1,0 +1,19 @@
+<button
+  class="seat-box"
+  [ngClass]="getSeatClass()"
+  [disabled]="isDisabled()"
+  [attr.aria-label]="getAriaLabel()"
+  [attr.aria-pressed]="selected"
+  [attr.aria-disabled]="isDisabled()"
+  (click)="onSeatClick()"
+  type="button"
+>
+  <span class="seat-icon">
+    <i [ngClass]="getSeatIcon()"></i>
+  </span>
+  <span class="seat-number">{{ seat.seatNumber }}</span>
+  <span class="selected-indicator" *ngIf="selected">
+    <i class="bi bi-check-circle-fill"></i>
+  </span>
+</button>
+

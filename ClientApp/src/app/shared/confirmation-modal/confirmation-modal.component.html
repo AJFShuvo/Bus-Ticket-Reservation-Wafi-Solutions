@@ -1,0 +1,36 @@
+<div class="modal-backdrop fade" [class.show]="show" *ngIf="show" (click)="onBackdropClick()"></div>
+
+<div class="modal fade" [class.show]="show" [class.d-block]="show" tabindex="-1" role="dialog" *ngIf="show">
+  <div class="modal-dialog modal-dialog-centered" role="document" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i [ngClass]="getIconClass()" class="me-2"></i>
+          {{ title }}
+        </h5>
+        <button type="button" class="btn-close" (click)="onCancel()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ message }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">
+          {{ cancelText }}
+        </button>
+        <button 
+          type="button" 
+          class="btn"
+          [ngClass]="{
+            'btn-danger': type === 'danger',
+            'btn-warning': type === 'warning',
+            'btn-primary': type === 'info'
+          }"
+          (click)="onConfirm()"
+        >
+          {{ confirmText }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

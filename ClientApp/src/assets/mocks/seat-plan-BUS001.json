@@ -1,0 +1,59 @@
+{
+  "busNumber": "BUS001",
+  "totalRows": 10,
+  "totalColumns": 4,
+  "deckType": "Single",
+  "currentDeck": "Single",
+  "seats": [
+    { "seatNumber": "A1", "row": 1, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "A2", "row": 1, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "A3", "row": 1, "column": 3, "isBooked": true, "seatType": "Aisle", "price": 45.00, "isAvailable": false },
+    { "seatNumber": "A4", "row": 1, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "B1", "row": 2, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "B2", "row": 2, "column": 2, "isBooked": true, "seatType": "Aisle", "price": 45.00, "isAvailable": false },
+    { "seatNumber": "B3", "row": 2, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "B4", "row": 2, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "C1", "row": 3, "column": 1, "isBooked": true, "seatType": "Window", "price": 45.00, "isAvailable": false },
+    { "seatNumber": "C2", "row": 3, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "C3", "row": 3, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "C4", "row": 3, "column": 4, "isBooked": true, "seatType": "Window", "price": 45.00, "isAvailable": false },
+    
+    { "seatNumber": "D1", "row": 4, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "D2", "row": 4, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "D3", "row": 4, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "D4", "row": 4, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "E1", "row": 5, "column": 1, "isBooked": true, "seatType": "Window", "price": 45.00, "isAvailable": false },
+    { "seatNumber": "E2", "row": 5, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "E3", "row": 5, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "E4", "row": 5, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "F1", "row": 6, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "F2", "row": 6, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "F3", "row": 6, "column": 3, "isBooked": true, "seatType": "Aisle", "price": 45.00, "isAvailable": false },
+    { "seatNumber": "F4", "row": 6, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "G1", "row": 7, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "G2", "row": 7, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "G3", "row": 7, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "G4", "row": 7, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "H1", "row": 8, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "H2", "row": 8, "column": 2, "isBooked": true, "seatType": "Aisle", "price": 45.00, "isAvailable": false },
+    { "seatNumber": "H3", "row": 8, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "H4", "row": 8, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    
+    { "seatNumber": "I1", "row": 9, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "I2", "row": 9, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "I3", "row": 9, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "I4", "row": 9, "column": 4, "isBooked": true, "seatType": "Window", "price": 45.00, "isAvailable": false },
+    
+    { "seatNumber": "J1", "row": 10, "column": 1, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "J2", "row": 10, "column": 2, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "J3", "row": 10, "column": 3, "isBooked": false, "seatType": "Aisle", "price": 45.00, "isAvailable": true },
+    { "seatNumber": "J4", "row": 10, "column": 4, "isBooked": false, "seatType": "Window", "price": 45.00, "isAvailable": true }
+  ]
+}
+
