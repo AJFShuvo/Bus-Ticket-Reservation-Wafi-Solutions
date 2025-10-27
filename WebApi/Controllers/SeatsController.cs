@@ -25,13 +25,6 @@ namespace WebAPI.Controllers
             return Ok(seats);
         }
 
-        [HttpPost("book")]
-        public async Task<ActionResult> BookSeat ([FromBody] BookSeatRequestDto request)
-        {
-            bool success = await _seatService.BookSeatAsync(request);
-            if (!success)
-                return BadRequest("Seat is already booked or invalid.");
-            return Ok("Seat booked successfully.");
-        }
+        
     }
 }
