@@ -1,12 +1,11 @@
-﻿using Application.DTOs;
+﻿using Application.Contracts.DTOs;
 using Domain.Entities;
 
 
-namespace Domain.Interfaces
+namespace Application.Contracts.Interfaces
 {
     public interface IJourneySeatRepository
     {
         Task<List<JourneySeatDto>> GetSeatsForJourneyAsync (Guid journeyId);
-        Task<JourneySeatBooking?> BookSeatAsync (JourneySeatBooking booking);
     }
 }

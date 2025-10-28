@@ -10,16 +10,16 @@ namespace WebApi.Controllers
     public class BookController : ControllerBase
     {
 
-        private readonly JourneySeatService _seatService;
+        private readonly JourneyBookService _bookService;
 
-        public BookController(JourneySeatService seatService)
+        public BookController(JourneyBookService bookService)
         {
-            _seatService = seatService;
+            _bookService = bookService;
         }
 
-        public async Task<ActionResult> Book([FromBody] BookSeatRequestDto request)
+        public async Task<ActionResult> BookS([FromBody] BookSeatRequestDto request)
         {
-            bool success = await _seatService.BookSeatAsync(request);
+            bool success = await _bookService.BookSeatAsync(request);
             if (!success)
                 return BadRequest("Seat is already booked or invalid.");
             return Ok("Seat booked successfully.");
